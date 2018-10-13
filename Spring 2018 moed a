@@ -1,0 +1,29 @@
+//q2
+public static int[] findFactors(int n)
+{
+	int low=2;
+	int high=n/2;
+	int mid;
+	while(low<=high)
+	{
+		mid=(low+high)/2;
+		if(n%mid==0)
+			return {mid, n/mid};
+		else
+		{
+			if(isHighFactorInRange(n, mid, high))
+				low=mid+1;
+			else
+				high=mid-1    
+		}
+	}
+	return -1;
+}
+
+	//time compliexity: the function Olog(n) * Olog(n) binary search = O(log^2(n))
+  
+  
+  
+  
+  
+  
