@@ -20,8 +20,9 @@ public static int[] findFactors(int n)
 	return -1;
 }
 
-	//time complexity: the function Olog(n) * Olog(n) binary search = O(log^2(n))
-	
+	//time compliexity: the function Olog(n) * Olog(n) binary search = O(log^2(n))
+
+
 //q3 seif a
 public static char annoying(String str)
 {
@@ -40,14 +41,24 @@ public static char annoying(String str)
 		{
 
 			max=count[i];
-			popular=i;
+			popular=(char)i;
 		}
 	}
 	return popular;
-}	
- //time complexity: o(n) 
-  
-  
-  
-  
-  
+}
+
+//q3 seif b
+public static void unAnnoy(String a[])
+{
+	for(int i=0; i<a.length; i++)
+	{
+		char popular = annoying(a[i]);
+		String temp= "";
+		for(int j = 0; j<a[i].length(); j++)
+		{
+			if(a[i].charAt(j) != popular)
+				temp=temp+a[i].charAt(j);
+		}
+		a[i]=temp;
+	}
+}
