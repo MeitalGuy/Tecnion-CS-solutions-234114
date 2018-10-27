@@ -5,7 +5,7 @@ public static int findSingle(String[] arr){
 	int mid;
 	while(low<=high)
 	{
-		mid = low + high / 2;
+		mid = (low + high) / 2;
 		if(arr[mid].equals(arr[mid-1]))
 		{
 			if(mid%2==0)
