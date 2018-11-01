@@ -38,3 +38,4 @@ public static findSortedWords(String words[], char[] abc)
 	}
 	return -1'
 }
+// time complexity O(n * logm) where n is the length of the longest String and m is the number of Strings on words array
