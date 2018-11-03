@@ -34,3 +34,36 @@ public static int findMin(String arr[])
 	return -1;
 }
 //time complexity O(m log n)
+
+//q4
+
+public static int cntTrueRegions(boolean matrix[][])
+{
+	return cntTrueRegions(matrix, 0, 0, 0);
+}
+private static int cntTrueRegions(boolean matrix[][], int i, int j, int count)
+{
+	if(i == matrix.length)
+		return count;
+	if( j == matrix.length)
+		return cntTrueRegions(matrix, i+1, 0, count);
+	if(matrix[i][j])
+	{
+		count++;
+		disable(matrix, i, j);
+	}
+	return cntTrueRegions(matrix, i, j+1, count);
+}
+
+private static void disable(boolean matrix[][], int i, int j)
+{
+	if(i == matrix.length || j<0 || j = matrix[0].length|| i<0)
+		return;
+	if(matrix[i][j] == false)
+		return;
+	matrix[i][j] = false;
+	disable(matrix, i+1, j); //down
+	disable(matrix, i, j+1); //right
+	disable(matrix, i, j-1); //left
+	disable(matrix, i-1, j); // up
+}
