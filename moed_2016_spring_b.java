@@ -20,3 +20,25 @@ public staticc int findDistance(int points[][2], double d){
 	return -1;
 }
 //Time complexity O(log(n))
+
+//q3
+public static int longestPal(String str)
+{
+	int mid;
+	int max = 1;
+	if(str.equals(""))
+		return 0;
+	for(mid = 1; mid<str.length(); mid++)
+	{
+		int steps = 1;
+		while(mid - steps >=0 && mid + steps < str.length() && str.charAt(mid-steps) == str.charAt(mid+steps))
+		{
+			steps++;
+		}
+		int length = 2*(steps - 1) + 1;
+		if(max < length)
+			max  = length;
+	}
+	return max;
+}
+//Time complexity O(n^2)
